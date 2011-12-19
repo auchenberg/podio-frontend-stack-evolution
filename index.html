@@ -195,7 +195,7 @@ Podio.Collections.Items = Backbone.PodioPaginatedCollection.extend({
           <section>
           <pre>
 
-Podio.Views.Items.BadgeViewItem = Backbone.View.extend({
+Podio.Views.Items.BadgeViewItem = Backbone.PodioView.extend({
   initialize: function() {
     _.bindAll(this, 'render');
   },
@@ -333,6 +333,9 @@ Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
         </section>
       </article>
 
+      <article>
+        <h2>Demo - App views</h2>
+      </article>
       <article>
         <h2>Benchmarks</h2>
       </article>
