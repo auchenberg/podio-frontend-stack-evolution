@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Going client-side</title>
+
+    <meta charset='utf-8'>
+    <script src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+  </head>
+
+  <style>
+    .slides.template-default > article:not(.nobackground):not(.biglogo) {
+      background: white url(https://company.podio.com/images/podiologo_thumb.gif) 730px 600px no-repeat !important;
+    }
+
+
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+
+      <article>
+        <h1>Going client-side</h1>
+        <p>
+          Podio
+          <br>
+          December, 2011
+        </p>
+      </article>
+
+      <article>
+        <h3>Agenda</h3>
+        <ul>
+          <li>The mission</li>
+          <li>Requirements</li>
+          <li>Going Backbone</li>
+          <li>Benchmarks</li>
+          <li>Testing</li>
+          <li>Going forward</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>The mission</h3>
+        <ul>
+          <li>Provider a more smooth experience</li>
+          <li>Make the frontend faster</li>
+          <li>More structured client-side code base</li>
+          <li>Better reusability</li>
+          <li>Introduce client-side testing</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Requirements</h3>
+        <ul>
+          <li>Fits existing code base</li>
+          <li>Lightweight</li>
+          <li>Provides structure, no locks</li>
+          <li>Decouple from DOM</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Server-side templating</h3>
+        <p>
+          <img class="centered" src='classic.jpg' style="height: 500px">
+        </p>
+      </article>
+
+      <article>
+        <h3>Client-side templating</h3>
+        <p>
+          <img class="centered" src='clientside.jpg' style="height: 500px">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          Backbone.JS
+        </h2>
+        <p>
+          <img class="centered" src='backbone.png' style="margin-top: 200px;">
+        </p>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Backbone.PodioModel
+        </h3>
+        <section>
+        <pre>
+Podio.Models.Item = Backbone.PodioModel.extend({
+
+  has_many : {
+    'revisions' : 'ItemRevision',
+    'files'     : 'Files',
+    'comments'  : 'Comments',
+    'shares'    : 'AppStoreShares'
+  }
+
+});
+</pre>
+        </section>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Backbone.PodioCollection
+        </h3>
+        <section>
+        <pre>
+Podio.Collections.Meetings = Backbone.PodioCollection.extend({
+    model: Podio.Models.Meeting,
+    url: '/backbone'
+});
+</pre>
+        </section>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+          Backbone.PodioPaginatedCollection
+        </h3>
+        <section>
+        <pre>
+Podio.Collections.Items = Backbone.PodioPaginatedCollection.extend({
+  model: Podio.Models.Item,
+
+  initialize: function(models, options) {
+    if (!options || !options.url) {
+      throw "The options hash or the url is missing!";
+    }
+    this.url = options.url;
+    this.initPagination(options.currentPage, options.itemsPerPage);
+  }
+});
+</pre>
+        </section>
+      </article>
+
+
+      <article class='smaller'>
+          <h3>
+            Backbone.PodioView
+          </h3>
+          <section>
+          <pre>
+
+Podio.Views.Items.BadgeViewItem = Backbone.View.extend({
+  initialize: function() {
+    _.bindAll(this, 'render');
+  },
+
+  render: function() {
+    $(this.el).html(Podio.Templates['items/badge_list/_item']({
+      data  : this.model.item.toJSON(),
+      model : this.model.item, index: this.model.index
+     }));
+
+    return this;
+  }
+});
+  </pre>
+          </section>
+        </article>
+
+      <article class='smaller'>
+         <h3>
+           Backbone.PodioPaginatedView
+         </h3>
+         <section>
+         <pre>
+Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
+ initialize : function () {
+   this.elmPagingNav = $('<div class="paging-nav">');
+   this.initializePagination();
+
+   _.bindAll(this, 'render');
+
+   this.collection.bind('reset', this.render);
+ },
+
+ render : function () {
+
+   var template = $(Podio.Templates['items/badge_list/_list']());
+
+   _(this.collection.models).each(function(model, index) {
+     var itemView = new Podio.Views.Items.BadgeViewItem({ model: { item: model, index: index } });
+
+     template.append($(itemView.render().el).children(':first'));
+   });
+
+   $(this.el).html(template);
+
+   this.elmPagingNav = this.elmPagingNav.appendTo(this.el);
+ }
+});
+ </pre>
+         </section>
+       </article>
+
+
+      <article class='smaller'>
+        <h3>
+          Backbone.PodioRouter
+        </h3>
+        <section>
+        <pre>
+Podio.Routers.Apps = Backbone.PodioRouter.extend({
+  routes : {
+    ":pageNum:"  : { action: "index" }
+  },
+
+  initialize: function() {
+    _.bindAll(this, 'index');
+  },
+
+  index : function (routeData, pageNum) {
+    if(!pageNum) {
+      pageNum = 1;
+    }
+
+    if (!this.appView) {
+      this.initComponents(pageNum);
+    }
+
+    this.itemsCollection.getPage(pageNum);
+  }
+});
+
+this.router = new Podio.Routers.Apps();
+</pre>
+        </section>
+      </article>
+
+      <article>
+        <h2>Benchmarks</h2>
+      </article>
+
+      <article>
+        <h2>Testing</h2>
+      </article>
+
+
+      <article>
+        <h3>
+          Tools
+        </h3>
+
+        <table>
+
+          <tr>
+            <td>
+              Jasmin
+            <td>
+             Unit testing
+          <tr>
+            <td>
+              Sinon.JS
+            <td>
+              Mocking
+          <tr>
+            <td>
+              Capybara
+            <td>
+              Acceptence testing
+          <tr>
+            <td>
+              Evergreen
+            <td>
+              Test runner for Jenkins/Dev
+        </table>
+      </article>
+
+      <article>
+        <h3>
+          Styles
+        </h3>
+        <ul>
+          <li>
+            <span class='red'>class="red"</span>
+          <li>
+            <span class='blue'>class="blue"</span>
+          <li>
+            <span class='green'>class="green"</span>
+          <li>
+            <span class='yellow'>class="yellow"</span>
+          <li>
+            <span class='black'>class="black"</span>
+          <li>
+            <span class='white'>class="white"</span>
+          <li>
+            <b>bold</b> and <i>italic</i>
+        </ul>
+      </article>
+
+    </section>
+
+  </body>
+</html>
