@@ -343,28 +343,49 @@ Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
       <article>
         <h2>Testing</h2>
       </article>
-
+      
+      <article>
+      	<h3>Testing strategy</h3>
+      	<ul>
+      	  <li>Models and Collections</li>
+      	  <li>Views</li>
+      	  <li>Integration testing</li>
+      	 </ul>
+      </article>
+      
+      <article>
+      	<h3>Challenges</h3>
+      	<ul>
+      	  <li>Browser vs. headless</li>
+      	  <li>Asserting the DOM vs. Asserting a jQuery object</li>
+      	  <li>Navigating the full stack</li>
+      	</ul>
+      </article>
 
       <article>
         <h3>
           Tools
         </h3>
+        
+        <ul>
+        	
+        </ul>
 
         <table>
 
           <tr>
             <td>
-              Jasmin
+              Jasmine
             <td>
              Unit testing
           <tr>
             <td>
-              Sinon.JS
+              Sinon.JS + jasmine-sinon
             <td>
-              Mocking
+              Mocking and Spying
           <tr>
             <td>
-              Capybara
+              Capybara + capybara-webkit
             <td>
               Acceptence testing
           <tr>
@@ -374,7 +395,63 @@ Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
               Test runner for Jenkins/Dev
         </table>
       </article>
+      
+      <article>
+      	<h3>Jasmine</h3>
+      	<section>
+      		<pre>
+describe("Jasmine", function() {
+  it("makes testing JavaScript awesome!", function() {
+    expect(yourCode).toBeLotsBetter();
+  });
+});
+</pre>
+</section>
+      </article>
 
+	  <article>
+	  	<h3>Sinon.js</h3>
+	  	<h5>Spies</h5>
+	  	<section>
+	  		<pre>
+var spy = sinon.spy();
+expect(spy).toHaveBeenCalled();
+expect(spy.calledWith(
+    this.todo
+)).toBeTruthy();
+</pre>
+</section>
+	  	<h5>Fake servers</h5>
+	  	<section>
+	  		<pre>
+this.server = sinon.fakeServer.create();
+this.server.respondWith("GET", "/episode/123",
+      [200, {"Content-Type": "application/json"},
+      '{"id":123,"title":"Hollywood - Part 2"}']);
+this.server.respond(); 
+</pre>
+</section>
+	  </article>
+	  
+	  <article>
+	  	<h3>Sinon.js</h3>
+	  	<h5>Stubs</h5>
+<section>
+	<pre>
+this.todoStub = sinon.stub(window, "Todo");
+this.todoStub.returns(this.model);
+	</pre>
+</section>
+<h5>HTML Fixtures and jQuery assertions (jasmine-jquery)</h5>
+<section>
+	<pre>
+loadFixtures('thermostats/show.html');
+setFixtures('some html');
+expect($('.todos').find('a'))
+        .toHaveAttr('href', '#todo/1');
+</pre>
+</section>
+	  </article>
 
       <article>
         <h2>Going forward</h2>
@@ -393,8 +470,9 @@ Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
           <li>Performance <br />
             <ul class="smaller">
               <li>Use the API directly?</li>
-              <li>Realtime?</li>
-              <li>What's the role of Rails? JavaScript?</li>
+              <li>What's the role of Rails?</li>
+              <li>Push updates / Slow polling</li>
+              <li>Event-driven API / Concurrency management<li>
             </ul>
             <br /></li>
 
