@@ -12,6 +12,15 @@
     .slides.template-default > article:not(.nobackground):not(.biglogo) {
       background: white url(https://company.podio.com/images/podiologo_thumb.gif) 730px 600px no-repeat !important;
     }
+    
+    article ul li ul li {
+	  font-size: 18px;
+	  line-height: 1.2;
+    }
+    
+    article ul li ul li:first-child {
+	  margin-top: 10px;
+    }
 
 
   </style>
@@ -53,11 +62,40 @@
       <article>
         <h3>The mission</h3>
         <ul>
-          <li>Provider a more smooth experience</li>
-          <li>Make the frontend faster</li>
-          <li>More structured client-side code base</li>
-          <li>Better reusability</li>
-          <li>Introduce client-side testing</li>
+          <li>
+          	Faster user experience
+          	<ul>
+          		<li>Decreased loading times</li>
+          		<li>Better preceived performance</li>
+          	</ul>
+          </li>
+          <li>
+          	Faster development
+          	<ul>
+          		<li>Reuse of components</li>
+          	</ul>
+          </li>
+          <li>
+          	More structure
+          	<ul>
+          		<li>A truly Component-based architecture</li>
+          		<li>Separation of concerns (MVC)</li>
+          	</ul>
+          </li>
+          <li>
+          	Less errors
+          	<ul>
+          		<li>Decouple from the DOM</li>
+          		<li>Less events and more routes</li>
+          	</ul>
+          </li>
+          <li>
+          	Less regression
+          	<ul>
+          		<li>Client-side testing</li>
+          		<li>Unit and integration tests</li>
+          	</ul>
+          </li>
         </ul>
       </article>
 
