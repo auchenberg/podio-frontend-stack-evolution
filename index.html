@@ -104,7 +104,7 @@
         <ul>
           <li>Fits existing code base</li>
           <li>Decouple from DOM</li>
-          <li>Provides structure, no locks</li>
+          <li>Provides structure, no lock-in</li>
           <li>Lightweight</li>
         </ul>
       </article>
@@ -203,7 +203,8 @@ Podio.Views.Items.BadgeViewItem = Backbone.View.extend({
   render: function() {
     $(this.el).html(Podio.Templates['items/badge_list/_item']({
       data  : this.model.item.toJSON(),
-      model : this.model.item, index: this.model.index
+      model : this.model.item,
+      index : this.model.index
      }));
 
     return this;
@@ -221,25 +222,15 @@ Podio.Views.Items.BadgeViewItem = Backbone.View.extend({
          <pre>
 Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
  initialize : function () {
-   this.elmPagingNav = $('<div class="paging-nav">');
+   this.elmPagingNav = $('');
    this.initializePagination();
 
-   _.bindAll(this, 'render');
-
-   this.collection.bind('reset', this.render);
+   ...
  },
 
  render : function () {
 
-   var template = $(Podio.Templates['items/badge_list/_list']());
-
-   _(this.collection.models).each(function(model, index) {
-     var itemView = new Podio.Views.Items.BadgeViewItem({ model: { item: model, index: index } });
-
-     template.append($(itemView.render().el).children(':first'));
-   });
-
-   $(this.el).html(template);
+   ....
 
    this.elmPagingNav = this.elmPagingNav.appendTo(this.el);
  }
@@ -278,6 +269,66 @@ Podio.Routers.Apps = Backbone.PodioRouter.extend({
 });
 
 this.router = new Podio.Routers.Apps();
+</pre>
+        </section>
+      </article>
+
+      <article class='smaller'>
+        <h3> Example</h3>
+        <section>
+        <pre>
+initComponents: function() {
+  var appId = Podio.Apps.appsViewModel.get('application').get('id');
+
+  this.appView = new Podio.Views.Apps.AppView({ model : Podio.Apps.appsViewModel });
+
+  this.itemsCollection = new Podio.Collections.Items([], {
+    currentPage: pageNum,
+    itemsPerPage: 9,
+    url: Podio.Router.getBaseUrl() + Podio.Routes.apps_items_path(Podio.Config.space_url_label, appId, { format: 'json' })
+  });
+
+  this.badgeView = new Podio.Views.Items.BadgeView({
+    el: $('.app-view-main .items-list'),
+    collection: this.itemsCollection
+  });
+
+}
+
+</pre>
+        </section>
+      </article>
+
+      <article class='smaller'>
+        <h3>Example</h3>
+        <section>
+        <pre>
+Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
+  initialize : function () {
+    this.elmPagingNav = $('');
+    this.initializePagination();
+
+    _.bindAll(this, 'render');
+
+    this.collection.bind('reset', this.render);
+  },
+
+  render : function () {
+
+    var template = $(Podio.Templates['items/badge_list/_list']());
+
+    _(this.collection.models).each(function(model, index) {
+      var itemView = new Podio.Views.Items.BadgeViewItem({ model: { item: model, index: index } });
+      template.append($(itemView.render().el).children(':first'));
+      itemView = null;
+    });
+
+    $(this.el).html(template);
+
+    this.elmPagingNav = this.elmPagingNav.appendTo(this.el);
+  }
+});
+
 </pre>
         </section>
       </article>
@@ -339,7 +390,8 @@ this.router = new Podio.Routers.Apps();
           <li>Performance <br />
             <ul class="smaller">
               <li>Use the API directly?</li>
-              <li>What's the role of Rails?</li>
+              <li>Realtime?</li>
+              <li>What's the role of Rails? JavaScript?</li>
             </ul>
             <br /></li>
 
