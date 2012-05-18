@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Going client-side</title>
+    <title>Evolution of the Podio frontend-stack </title>
 
     <meta charset='utf-8'>
     <script src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
@@ -12,16 +12,49 @@
     .slides.template-default > article:not(.nobackground):not(.biglogo) {
       background: white url(https://company.podio.com/images/podiologo_thumb.gif) 730px 600px no-repeat !important;
     }
-    
+
     article ul li ul li {
 	  font-size: 18px;
 	  line-height: 1.2;
     }
-    
+
     article ul li ul li:first-child {
 	  margin-top: 10px;
     }
 
+    .slides.template-default > article:not(.nobackground):not(.biglogo).master {
+      background: #F1E9D9 !important;
+    }
+
+    body {
+      background: #000 !important;
+    }
+
+    .title img {position: absolute;  top: 250px; left: 490px; width: 200px; }
+
+
+    .about-me img { position: absolute; }
+    .about-me .zyb { top: 40px; left: 0px; }
+    .about-me .vodafone { bottom: 250px; right: 300px; }
+    .about-me .cphjs { top: 100px; right: 100px; height: 150px  ; }
+
+    p.credit { font-size: 12px; text-align: right;}
+
+    h3 {
+      color: #666 !important;
+      position: absolute;
+      bottom: 110px;
+    }
+
+    .prettyprint {
+      margin-top: -20px;
+    }
+
+    .fill h1 {
+      color: #fff;
+      margin-top: 150px;
+      margin-left: 575px;
+    }
 
   </style>
 
@@ -29,12 +62,148 @@
 
     <section class='slides layout-regular template-default'>
 
-      <article>
-        <h1>Going client-side</h1>
+      <article class="master title">
+        <img src="img/podio.png" class="podio">
+        <h1>Evolution of the  &nbsp;&nbsp;&nbsp;&nbsp; frontend-stack</h1>
         <p>
-          Podio
-          <br>
-          December, 2011
+          Kenneth Auchenberg<br />
+          @auchenberg<br />
+          <br />
+          LBI, May 2012
+        </p>
+      </article>
+
+
+      <article>
+        <h2>
+          Hi there
+        </h2>
+        <p>
+          <div class="about-me">
+            <img src="img/zyb.png" class="zyb">
+            <img src="img/vodafone.png" class="vodafone">
+            <img src="img/cphjs.png" class="cphjs">
+          </div>
+        </p>
+      </article>
+
+      <article>
+        <p>
+          <img class="centered" src='img/podio.png' style="margin-top: 240px">
+        </p>
+      </article>
+
+      <article>
+        <p>
+          <img class="centered" src='img/citrix.jpg' style="margin-top: 240px">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          Basement
+        </h2>
+        <p>
+          <img class="centered" src='img/hoist.jpg' style="margin-top: 240px">
+        </p>
+      </article>
+
+
+      <article>
+        <h2>
+          Once upon a time...
+        </h2>
+        <p>
+          <img class="centered" src='img/podio-old.png' style="height: 400px;">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          1 developer for the first 18 months.
+        </h2>
+
+        <p>
+          <img class="centered" src='img/busy.gif' style="margin-top: 50px; height: 350px;">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          Traditional web site
+        </h2>
+        <p>
+          <img class="centered" src='img/full_stack.jpg' style="height: 400px;">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          PHP & MySQL
+        </h2>
+        <p>
+          <img class="centered" src='img/php.jpg' style="height: 400px;">
+        </p>
+      </article>
+
+      <article>
+        <h3>Large stylesheets</h3>
+        <p>
+          <img class="centered" src="img/large_css_1.png" style="height: 500px; position: absolute; left: 50px; top: 30px; z-index: 1; ">
+
+          <img class="centered" src="img/large_css_3.png" style="height: 500px; position: absolute; left: 440px; top: 100px; z-index: 3; ">
+        </p>
+
+      </article>
+
+      <article>
+        <h3>Lots of scripts/jquery plugins</h3>
+        <p>
+          <img class="centered" src="img/scripts.png" style="height: 500px; margin-top: -20px; margin-left: 0px ">
+        </p>
+      </article>
+
+
+      <article>
+        <p>
+          <img class="centered" src="img/hardwork.jpg" style="height: 500px; ">
+        </p>
+
+      </article>
+
+
+      <article>
+        <h2>
+          The API
+        </h2>
+        <p>
+          <img class="centered" src='img/api.png' style="">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          Three months after...
+        </h2>
+        <p>
+          <img class="centered"  src="img/tired_baby.jpg"  />
+        </p>
+      </article>
+
+      <article>
+        <h1>Go!</h1>
+        <h2>
+          24 hours of migration
+        </h2>
+        <h3>1000+ up/downgrade scripts.</h3>
+      </article>
+
+      <article>
+        <h2>
+          Yup, still up.
+        </h2>
+        <p>
+          <img class="centered" src='img/podio-old.png' style="height: 400px;">
         </p>
       </article>
 
@@ -42,450 +211,361 @@
         <h2>
           Project ZEUS
         </h2>
+        <h3>Big one </h3>
         <p>
-          <img class="centered" src='zeus.jpg' style="height: 400px;">
+          <img class="centered" src='img/zeus.jpg' style="height: 400px;">
         </p>
       </article>
 
       <article>
-        <h3>Agenda</h3>
-        <ul>
-          <li>The mission</li>
-          <li>Requirements</li>
-          <li>Going Backbone</li>
-          <li>Benchmarks</li>
-          <li>Testing</li>
-          <li>Going forward</li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>The mission</h3>
+        <h2>The mission</h2>
         <ul>
           <li>
-          	Faster user experience
-          	<ul>
-          		<li>Decreased loading times</li>
-          		<li>Better preceived performance</li>
-          	</ul>
+            Faster user experience
+            <ul>
+              <li>Decreased loading times</li>
+              <li>Better preceived performance</li>
+            </ul>
           </li>
           <li>
-          	Faster development
-          	<ul>
-          		<li>Reuse of components</li>
-          	</ul>
+            More structure
+            <ul>
+              <li>Faster development</li>
+              <li>A truly Component-based architecture</li>
+              <li>Reuse of components</li>
+              <li>Separation of concerns</li>
+            </ul>
           </li>
           <li>
-          	More structure
-          	<ul>
-          		<li>A truly Component-based architecture</li>
-          		<li>Separation of concerns (MVC)</li>
-          	</ul>
-          </li>
-          <li>
-          	Less errors
-          	<ul>
-          		<li>Decouple from the DOM</li>
-          		<li>Less events and more routes</li>
-          	</ul>
-          </li>
-          <li>
-          	Less regression
-          	<ul>
-          		<li>Client-side testing</li>
-          		<li>Unit and integration tests</li>
-          	</ul>
+            Less errors & regression
+            <ul>
+              <li>Decouple from the DOM</li>
+              <li>Scoped events and robust routing</li>
+              <li>Unit and integration tests</li>
+            </ul>
           </li>
         </ul>
       </article>
 
       <article>
-        <h3>Requirements</h3>
-        <ul>
-          <li>Fits existing code base</li>
-          <li>Decouple from DOM</li>
-          <li>Provides structure, no lock-in</li>
-          <li>Lightweight</li>
-        </ul>
+        <h2>
+          Airborne stunt
+        </h2>
+        <h3>We needed to do this in parallel</h3>
+        <p>
+          <img class="centered" src='img/stunt.jpg' style="height: 400px; margin-top: 50px;">
+        </p>
+        <br />
+        <p class="credit">SWNS, DailyMail</p>
+      </article>
+
+      <article>
+        <h2>
+          Ruby on Rails
+        </h2>
+        <p>
+          <img class="centered" src='img/rails.jpg' style="margin-top: 50px;">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          ActivePodio
+        </h2>
+        <h3> ORM </h3>
+        <pre class="prettyprint">
+class Podio::Comment < ActivePodio::Base
+  property :comment_id, :integer
+
+  has_one :created_by, :class => 'ByLine'
+  has_many :files, :class => 'FileAttachment'
+
+  class << self
+    def create(commentable_type, commentable_id, attributes)
+      response = Podio.connection.post do |req|
+        req.url "/comment/#{commentable_type}/#{commentable_id}"
+        req.body = attributes
+      end
+
+      response.body['comment_id']
+    end
+  ...
+</pre>
+      </article>
+
+      <article>
+        <h2>
+         Open sourced
+        </h2>
+
+        <h3> http://github.com/podio </h3>
+        <p>
+          <img class="centered" src='img/github.png' style="height: 400px; margin-top: 50px;">
+        </p>
+      </article>
+
+      <article>
+        <h2>
+         SASS
+        </h2>
+        <p>
+          <img class="centered" src='img/sass.png' style="margin-top: 100px;">
+        </p>
+      </article>
+
+      <article>
+
+
+      <pre class="prettyprint">
+.podio-autocompleter {
+  ul {
+    @include border-bottom-radius(5px);
+    @include box-shadow-default();
+
+    border: 1px solid $color-form-input-active;
+
+    > li {
+      @include font-mini;
+      cursor: pointer;
+
+      color: $color-text-light-grey;
+      background-color: $color-bg-light-grey;
+      height: 28px;
+
+      &.active, &:hover {
+        @include gradient(top, $color-bg-light-grey, $color-white);
+      }
+    }
+  }
+}     </pre>
+
+    </article>
+
+      <article>
+        <h2>
+         OOCSS
+        </h2>
+        <h3>by Nicole Sullivan</h3>
+        <p>
+          <img class="centered" src='img/lego.jpg' style="margin-top: 0px; height: 400px; ">
+          <p class="credit">http://www.kotancode.com/2010/08/05/mef-and-the-zen-of-lego/</p>
+        </p>
+      </article>
+
+      <article>
+        <p>
+          <img class="centered" src='img/image_block.png' style="height: 600px">
+        </p>
+      </article>
+
+      <article>
+        <p>
+          <img class="centered" src='img/image_block_highlighted.png' style="height: 600px">
+        </p>
+      </article>
+
+      <article>
+        <p>
+          <img class="centered" src='img/podiojs.jpg' style="margin-top: -20px">
+        </p>
       </article>
 
       <article>
         <h3>Server-side templating</h3>
         <p>
-          <img class="centered" src='classic.jpg' style="height: 500px">
+          <img class="centered" src='img/classic.jpg' style="height: 500px">
+        </p>
+      </article>
+
+
+      <article>
+        <h2>
+          Browsers are clients, too...
+        </h2>
+        <p>
+          <img class="centered" src='img/browsers.jpg' style="height: 400px;">
+        </p>
+      </article>
+
+     <article>
+        <h2>
+          x 1.000.000's of them
+        </h2>
+        <p>
+          <img class="centered" src='img/browser_windows.gif' style="height: 400px;">
+        </p>
+      </article>
+
+
+     <article>
+        <h2>
+          Let's use them for something!
+        </h2>
+
+        <p>
+          <img class="centered" src='img/rocket.png' style="height: 400px">
         </p>
       </article>
 
       <article>
         <h3>Client-side templating</h3>
         <p>
-          <img class="centered" src='clientside.jpg' style="height: 500px">
+          <img class="centered" src='img/clientside.jpg' style="height: 500px">
         </p>
       </article>
 
       <article>
         <h2>
-          Backbone.JS
+          Welcome
         </h2>
         <p>
-          <img class="centered" src='backbone.png' style="margin-top: 200px;">
+          <img class="centered" src='img/backbone.png' style="margin-top: 200px;">
         </p>
       </article>
 
-      <article class='smaller'>
-        <h3>
-          Backbone.PodioModel
-        </h3>
-        <section>
-        <pre>
-Podio.Models.Item = Backbone.PodioModel.extend({
-
-  has_many : {
-    'revisions' : 'ItemRevision',
-    'files'     : 'Files',
-    'comments'  : 'Comments',
-    'shares'    : 'AppStoreShares'
-  }
-
-});
-</pre>
-        </section>
+      <article>
+        <h3>Backbone flow</h3>
+        <p>
+          <img class="centered" src='img/mvc_backbone.png' style="">
+        </p>
       </article>
 
-      <article class='smaller'>
-        <h3>
-          Backbone.PodioCollection
-        </h3>
-        <section>
-        <pre>
-Podio.Collections.Meetings = Backbone.PodioCollection.extend({
-    model: Podio.Models.Meeting,
-    url: '/backbone'
-});
-</pre>
-        </section>
+      <article>
+        <h3>Our flow</h3>
+        <p>
+          <img class="centered" src='img/mvc_podio.png' style="">
+        </p>
       </article>
 
-      <article class='smaller'>
-        <h3>
-          Backbone.PodioPaginatedCollection
-        </h3>
-        <section>
-        <pre>
-Podio.Collections.Items = Backbone.PodioPaginatedCollection.extend({
-  model: Podio.Models.Item,
+      <article>
+        <h2>Backbone extensions</h2>
+        <ul style="margin-top: -10px">
+          <li>Controllers</li>
+          <li>Non-RESTful models</li>
+          <li>Template helpers (render, link_to, img, button)</li>
+          <li>Property formatters (timestamps, numbers)</li>
+          <li>Rights management</li>
+          <li>Nested models / relationships </li>
+          <li>Routing (pushState and fragments)</li>
+          <li>Data caching</li>
+          <li>DOM Event delegation</li>
+        </ul>
+      </article>
 
-  initialize: function(models, options) {
-    if (!options || !options.url) {
-      throw "The options hash or the url is missing!";
+
+      <article class="smaller">
+          <pre class="prettyprint">
+(function (window, $, _, Podio, undefined) {
+
+  Podio.Views.ActionBar = Backbone.PodioView.extend({
+    initialize: function(options) {
+
+      _.bindAll(this, 'onActionNextClicked', 'onActionPreviousClicked', 'onShortcutLikePressed', 'onShortcutNextPressed', 'onShortcutPreviousPressed');
+
+      this.podioDelegateEvents();
+      this.eventBus = this.options.eventBus;
+    },
+
+    podioEvents: {
+      'click .action-bar .follow'       : 'onActionFollowClicked',
+      'click .action-bar .like'         : 'onActionLikeClicked',
+      'click .action-bar .next'         : 'onActionNextClicked',
+      'click .action-bar .previous'     : 'onActionPreviousClicked'
+    },
+
+    shortcuts: {
+      'l'     : 'onShortcutLikePressed',
+      'left'  : 'onShortcutPreviousPressed',
+      'right' : 'onShortcutNextPressed'
+    },
+
+    onActionPreviousClicked: function(elmTarget, e) {
+      this.trigger('actionBar:previousItemClicked', this.model );
     }
-    this.url = options.url;
-    this.initPagination(options.currentPage, options.itemsPerPage);
-  }
-});
-</pre>
-        </section>
-      </article>
-
-
-      <article class='smaller'>
-          <h3>
-            Backbone.PodioView
-          </h3>
-          <section>
-          <pre>
-
-Podio.Views.Items.BadgeViewItem = Backbone.PodioView.extend({
-  initialize: function() {
-    _.bindAll(this, 'render');
-  },
-
-  render: function() {
-    $(this.el).html(Podio.Templates['items/badge_list/_item']({
-      data  : this.model.item.toJSON(),
-      model : this.model.item,
-      index : this.model.index
-     }));
-
-    return this;
-  }
-});
-  </pre>
-          </section>
-        </article>
-
-      <article class='smaller'>
-         <h3>
-           Backbone.PodioPaginatedView
-         </h3>
-         <section>
-         <pre>
-Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
- initialize : function () {
-   this.elmPagingNav = $('');
-   this.initializePagination();
-
-   ...
- },
-
- render : function () {
-
-   ....
-
-   this.elmPagingNav = this.elmPagingNav.appendTo(this.el);
- }
-});
- </pre>
-         </section>
-       </article>
-
-
-      <article class='smaller'>
-        <h3>
-          Backbone.PodioRouter
-        </h3>
-        <section>
-        <pre>
-Podio.Routers.Apps = Backbone.PodioRouter.extend({
-  routes : {
-    ":pageNum:"  : { action: "index" }
-  },
-
-  initialize: function() {
-    _.bindAll(this, 'index');
-  },
-
-  index : function (routeData, pageNum) {
-    if(!pageNum) {
-      pageNum = 1;
-    }
-
-    if (!this.appView) {
-      this.initComponents(pageNum);
-    }
-
-    this.itemsCollection.getPage(pageNum);
-  }
-});
-
-this.router = new Podio.Routers.Apps();
-</pre>
-        </section>
-      </article>
-
-      <article class='smaller'>
-        <h3> Example</h3>
-        <section>
-        <pre>
-initComponents: function() {
-  var appId = Podio.Apps.appsViewModel.get('application').get('id');
-
-  this.appView = new Podio.Views.Apps.AppView({ model : Podio.Apps.appsViewModel });
-
-  this.itemsCollection = new Podio.Collections.Items([], {
-    currentPage: pageNum,
-    itemsPerPage: 9,
-    url: Podio.Router.getBaseUrl() + Podio.Routes.apps_items_path(Podio.Config.space_url_label, appId, { format: 'json' })
-  });
-
-  this.badgeView = new Podio.Views.Items.BadgeView({
-    el: $('.app-view-main .items-list'),
-    collection: this.itemsCollection
-  });
+    ...
 
 }
-
 </pre>
-        </section>
-      </article>
 
-      <article class='smaller'>
-        <h3>Example</h3>
-        <section>
-        <pre>
-Podio.Views.Items.BadgeView = Backbone.PodioPaginatedView.extend({
-  initialize : function () {
-    this.elmPagingNav = $('');
-    this.initializePagination();
 
-    _.bindAll(this, 'render');
-
-    this.collection.bind('reset', this.render);
-  },
-
-  render : function () {
-
-    var template = $(Podio.Templates['items/badge_list/_list']());
-
-    _(this.collection.models).each(function(model, index) {
-      var itemView = new Podio.Views.Items.BadgeViewItem({ model: { item: model, index: index } });
-      template.append($(itemView.render().el).children(':first'));
-      itemView = null;
-    });
-
-    $(this.el).html(template);
-
-    this.elmPagingNav = this.elmPagingNav.appendTo(this.el);
-  }
-});
-
-</pre>
-        </section>
       </article>
 
       <article>
-        <h2>Demo - App views</h2>
-      </article>
-      <article>
-        <h2>Benchmarks</h2>
-      </article>
-
-      <article>
-        <h2>Testing</h2>
-      </article>
-      
-      <article>
-      	<h3>Testing strategy</h3>
-      	<ul>
-      	  <li>Models and Collections</li>
-      	  <li>Views</li>
-      	  <li>Integration testing</li>
-      	 </ul>
-      </article>
-      
-      <article>
-      	<h3>Challenges</h3>
-      	<ul>
-      	  <li>Browser vs. headless</li>
-      	  <li>Asserting the DOM vs. Asserting a jQuery object</li>
-      	  <li>Navigating the full stack</li>
-      	</ul>
+        <h3>FileFinder</h3>
+        <p>
+          <a href="https://hoist.podio.com/development/apps/14956/items/new" target="_blank">
+            <img class="centered" src='img/filefinder.png' style="height: 500px; margin-top: -20px;">
+          </a>
+        </p>
       </article>
 
       <article>
-        <h3>
-          Tools
-        </h3>
-        
-        <ul>
-        	
-        </ul>
-
-        <table>
-
-          <tr>
-            <td>
-              Jasmine
-            <td>
-             Unit testing
-          <tr>
-            <td>
-              Sinon.JS + jasmine-sinon
-            <td>
-              Mocking and Spying
-          <tr>
-            <td>
-              Capybara + capybara-webkit
-            <td>
-              Acceptence testing
-          <tr>
-            <td>
-              Evergreen
-            <td>
-              Test runner for Jenkins/Dev
-        </table>
-      </article>
-      
-      <article>
-      	<h3>Jasmine</h3>
-      	<section>
-      		<pre>
-describe("Jasmine", function() {
-  it("makes testing JavaScript awesome!", function() {
-    expect(yourCode).toBeLotsBetter();
-  });
-});
-</pre>
-</section>
+        <h3>Layouts</h3>
+        <p>
+          <a href="https://hoist.podio.com/development/files#list" target="_blank">
+            <img class="centered" src='img/appviews.png' style="height: 500px; margin-top: -20px;">
+          </a>
+        </p>
       </article>
 
-	  <article>
-	  	<h3>Sinon.js</h3>
-	  	<h5>Spies</h5>
-	  	<section>
-	  		<pre>
-var spy = sinon.spy();
-expect(spy).toHaveBeenCalled();
-expect(spy.calledWith(
-    this.todo
-)).toBeTruthy();
-</pre>
-</section>
-	  	<h5>Fake servers</h5>
-	  	<section>
-	  		<pre>
-this.server = sinon.fakeServer.create();
-this.server.respondWith("GET", "/episode/123",
-      [200, {"Content-Type": "application/json"},
-      '{"id":123,"title":"Hollywood - Part 2"}']);
-this.server.respond(); 
-</pre>
-</section>
-	  </article>
-	  
-	  <article>
-	  	<h3>Sinon.js</h3>
-	  	<h5>Stubs</h5>
-<section>
-	<pre>
-this.todoStub = sinon.stub(window, "Todo");
-this.todoStub.returns(this.model);
-	</pre>
-</section>
-<h5>HTML Fixtures and jQuery assertions (jasmine-jquery)</h5>
-<section>
-	<pre>
-loadFixtures('thermostats/show.html');
-setFixtures('some html');
-expect($('.todos').find('a'))
-        .toHaveAttr('href', '#todo/1');
-</pre>
-</section>
-	  </article>
-
       <article>
+        <h3>Slidey-out panel</h3>
+        <p>
+          <a href="https://hoist.podio.com/development/apps/bugs#1" target="_blank">
+            <img class="centered" src='img/appviews_slide.png' style="height: 500px; margin-top: -20px;">
+          </a>
+        </p>
+      </article>
+
+     <article>
         <h2>Going forward</h2>
-      </article>
-
-      <article>
-        <ul>
-          <li>Maintainability <br />
-            <ul class="smaller">
-              <li>Unify Ruby/JavaScript (templating, models)?</li>
-              <li>Responsbility of acceptance testing</li>
-            </ul>
-            <br /></li>
-
-
-          <li>Performance <br />
-            <ul class="smaller">
-              <li>Use the API directly?</li>
-              <li>What's the role of Rails?</li>
-              <li>Push updates / Slow polling</li>
-              <li>Event-driven API / Concurrency management<li>
-            </ul>
-            <br /></li>
-
-          <li>Future experience <br />
-            <ul class="smaller">
-              <li>Caching?</li>
-              <li>Resume?</li>
+        <ul style="margin-top: -10px">
+          <li>Focus on speed
+            <ul>
+              <li>More on the client</li>
+              <li>JavaScript dependencies / Optimize images </li>
             </ul>
           </li>
-
+          <li>Less overhead
+            <ul>
+              <li>Auto spriting</li>
+              <li>Minimize API call overhead (rails)</li>
+            </ul>
+          </li>
+          <li>Better experience
+            <ul>
+              <li>More responsive / More devices</li>
+              <li>Accessbility</li>
+            </ul>
+          </li>
+          <li>Faster updates
+            <ul>
+              <li>Continuous deployment</li>
+              <li>Better testing (acceptance testing)</li>
+            </ul>
+          </li>
         </ul>
       </article>
 
+      <article>
+        <h2>Having fun</h2>
+        <p>
+            <img class="" src='img/deploy_holm.jpg' style="height: 300px; margin-left: 40px; ">
+            <img class="" src='img/deploy_daniel.jpg' style="height: 300px;">
+            <img class="" src='img/deploy_george.jpg' style="height: 300px;">
+            <img class="" src='img/deploy_youtube.png' style="height: 200px; position: absolute; right:50px; bottom: 100px; ">
+          </a>
+        </p>
+      </article>
+
+      <article class="fill">
+        <h1>Thanks</h1>
+
+        <p>
+          <img src="img/kenneth.jpg" />
+        </p>
+
+      </article>
 
     </section>
 
